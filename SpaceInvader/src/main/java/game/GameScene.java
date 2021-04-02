@@ -193,13 +193,20 @@ public class GameScene extends Application {
     public void gameStartMenu(){
         VBox vBox = new VBox();
 
-        vBox.setTranslateX((SCENE_WIDTH/2)-50);
-        vBox.setTranslateY((SCENE_HEIGHT/2)-50);
+        vBox.setTranslateX((SCENE_WIDTH/2)-150);
+        vBox.setTranslateY((SCENE_HEIGHT/2)-150);
+
+        Text logo = new Text("SPACE WAR");
+        logo.setFill(Color.WHITE);
+        logo.setFont(new Font(50));
+        logo.setStyle("-fx-font-family: FreeMono");
+        logo.setX(vBox.getMaxWidth()/2);
+        logo.setY(vBox.getMaxHeight()/2);
 
         Text newGame = new Text("New Game");
         newGame.setFill(Color.WHITE);
         newGame.setFont(new Font(20));
-        newGame.setX(vBox.getMaxWidth()/2);
+        newGame.setX((vBox.getMaxWidth()/2)+100);
         newGame.setY(vBox.getMaxHeight()/2);
         newGame.setOnMouseEntered(e->{
            newGame.setFill(Color.RED);
@@ -211,10 +218,11 @@ public class GameScene extends Application {
             gameReset();
             START = true;
             stackPane.getChildren().remove(vBox);
+            pane.getChildren().remove(hero);
             pane.getChildren().add(hero);
 
         });
-        vBox.getChildren().add(newGame);
+        vBox.getChildren().addAll(logo,newGame);
         stackPane.getChildren().add(vBox);
     }
 

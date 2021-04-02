@@ -175,8 +175,10 @@ public class GameScene extends Application {
                         GAME_OVER = false;
                         collide = false;
                     }
-                    SPACE_SPEED += 0.002;
-                    ENEMIES_SPEED += 0.002;
+                    if(SCORE%10 == 0){
+                        SPACE_SPEED += 0.002;
+                        ENEMIES_SPEED += 0.002;
+                    }
                 }
 
             }

@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="GameScene" target="1.5" />
+      <module name="GameScene" target="11" />
       <module name="GameScene (1)" target="11" />
       <module name="GameScene (2)" target="1.5" />
     </bytecodeTargetLevel>

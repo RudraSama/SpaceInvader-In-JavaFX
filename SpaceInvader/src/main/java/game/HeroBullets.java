@@ -21,9 +21,26 @@ public class HeroBullets extends Rectangle {
         }
         return isCollide;
     }
-    public void upgrade(){
-        this.setHeight(8);
-        this.setWidth(8);
-        this.setFill(Color.DARKBLUE);
+    public void shipCase(int x){
+        switch (x){
+            case 1:
+                this.setFill(Color.GREEN);
+                break;
+            case 2:
+                this.setFill(Color.WHITE);
+                break;
+            case 3:
+                this.setFill(Color.RED);
+                break;
+            case 4:
+                this.setFill(Color.YELLOW);
+                break;
+            case 5:
+                this.setFill(Color.ORANGE);
+                break;
+            case 6:
+                this.setFill(Color.CYAN);
+                break;
+        }
     }
 }

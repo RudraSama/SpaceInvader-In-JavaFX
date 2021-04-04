@@ -1,3 +1,4 @@
+game/SelectShip.class
 game/GameLauncher.class
 game/Enemies.class
 game/Hero.class
@@ -7,3 +8,5 @@ game/Space.class
 game/GameScene$1.class
 game/PauseScreen.class
 game/GameOverScreen.class
+game/OptionMenu.class
+game/StartMenu.class

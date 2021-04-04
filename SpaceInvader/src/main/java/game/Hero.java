@@ -6,11 +6,13 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 
 public class Hero extends ImageView {
+    private int height = 70;
+    private int width = 130;
     Hero() throws Exception{
         this.setImage(new Image(String.valueOf(new File("images/heroSpaceShip.png").toURI().toURL())));
-        this.setFitHeight(50);
-        this.setFitWidth(100);
-        this.setTranslateX(540);
+        this.setFitHeight(height);
+        this.setFitWidth(width);
+        this.setTranslateX(480);
         this.setTranslateY(650);
     }
     public double getHeroX(){

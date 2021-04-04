@@ -1,8 +1,11 @@
+/home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/StartMenu.java
 /home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/HeroBullets.java
 /home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/GameScene.java
+/home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/OptionMenu.java
 /home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/GameLauncher.java
 /home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/GameOverScreen.java
 /home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/PauseScreen.java
 /home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/Space.java
 /home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/Enemies.java
 /home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/Hero.java
+/home/lucky/IdeaProjects/SpaceInvader-In-JavaFX/SpaceInvader/src/main/java/game/SelectShip.java

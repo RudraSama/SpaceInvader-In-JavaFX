@@ -58,8 +58,7 @@ public class GameScene extends Application {
     private  int SHIPCASE = 6;
     private Media media;
     private MediaPlayer background;
-    private Media fireMedia;
-    private MediaPlayer fireSound;
+    private VFXSound vfxSound;
 
     public void gameReset(){
         Iterator<Space> elementsItr = elements.iterator();
@@ -152,6 +151,7 @@ public class GameScene extends Application {
                                 itr.remove();
                                 pane.getChildren().remove(bullets);
                                 pane.getChildren().remove(enemies);
+                                vfxSound.bombSound();
                             }
                         }
                         if (enemies.getPosY() > SCENE_HEIGHT) {
@@ -201,72 +201,17 @@ public class GameScene extends Application {
     }
 
     public void gameStartMenu(){
-        AnchorPane anchorPane = new AnchorPane();
-
-        anchorPane.setTranslateX((SCENE_WIDTH/2)-150);
-        anchorPane.setTranslateY((SCENE_HEIGHT/2)-150);
-
-        Text logo = new Text("SPACE WAR");
-        logo.setFill(Color.WHITE);
-        logo.setFont(new Font(50));
-        logo.setStyle("-fx-font-family: FreeMono");
-        logo.setX(anchorPane.getMaxWidth()/2);
-        logo.setY(anchorPane.getMaxHeight()/2);
-
-        Text newGame = new Text("New Game");
-        newGame.setFill(Color.WHITE);
-        newGame.setFont(new Font(20));
-        newGame.setX((anchorPane.getMaxWidth()/2)+80);
-        newGame.setY((anchorPane.getMaxHeight()/2)+100);
-        newGame.setOnMouseEntered(e->{
-            newGame.setFill(Color.RED);
-        });
-        newGame.setOnMouseExited(e->{
-            newGame.setFill(Color.WHITE);
-        });
-
-        Text option = new Text("Options");
-        option.setFill(Color.WHITE);
-        option.setFont(new Font(20));
-        option.setX((anchorPane.getMaxWidth()/2)+95);
-        option.setY((anchorPane.getMaxHeight()/2)+150);
-        option.setOnMouseEntered(e->{
-            option.setFill(Color.RED);
-        });
-        option.setOnMouseExited(e->{
-            option.setFill(Color.WHITE);
-        });
-
-
-
-        newGame.setOnMouseClicked(e ->{
-            gameReset();
-            START = true;
-            stackPane.getChildren().remove(anchorPane);
-            pane.getChildren().remove(hero);
-            pane.getChildren().add(hero);
-
-        });
-
-        option.setOnMouseClicked(e->{
-            stackPane.getChildren().remove(anchorPane);
-            OptionMenu optionMenu = new OptionMenu(stackPane, hero, pane, anchorPane, gameScene, background);
-            stackPane.getChildren().add(optionMenu);
-        });
-        anchorPane.getChildren().addAll(logo,newGame, option);
-        stackPane.getChildren().add(anchorPane);
+        StartMenu startMenu = new StartMenu(stackPane, gameScene,pane,hero,vfxSound);
     }
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        media = new Media(String.valueOf(new File("sounds/backgroundMusic.mp3").toURI().toURL()));
-        fireMedia = new Media(String.valueOf(new File("sounds/fire.mp3").toURI().toURL()));
-        background = new MediaPlayer(media);
-        fireSound = new MediaPlayer(fireMedia);
+
+        vfxSound = new VFXSound();
         gameScene();
-        background.setAutoPlay(true);
+
 
         stackPane.getChildren().addAll(pane);
         stackPane.setStyle("-fx-background-color: #000000");
@@ -318,15 +263,16 @@ public class GameScene extends Application {
             bullets.shipCase(SHIPCASE);
             bulletsList.add(bullets);
             pane.getChildren().add(bullets);
-            fireSound.play();
-            fireSound.setStopTime(Duration.seconds(2));
+            vfxSound.fireSound();
             }
         }
     public void setSHIPCASE(int x){
         SHIPCASE = x;
     }
 
-
+    public void setStart(boolean flag){
+        START = flag;
+    }
 
 
 }

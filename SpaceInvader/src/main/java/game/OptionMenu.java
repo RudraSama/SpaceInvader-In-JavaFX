@@ -13,7 +13,7 @@ public class OptionMenu extends AnchorPane {
     private Text selectShip;
     private CheckBox vfxBox;
     private CheckBox backgroundSound;
-    OptionMenu(StackPane stackPane, Hero hero, Pane pane, AnchorPane anchorPane, GameScene gameScene, MediaPlayer background){
+    OptionMenu(StackPane stackPane, Hero hero, Pane pane, AnchorPane anchorPane, GameScene gameScene,  VFXSound vfxSound){
         this.setTranslateX((SCENE_WIDTH/2)-150);
         this.setTranslateY((SCENE_HEIGHT/2)-150);
 
@@ -47,11 +47,19 @@ public class OptionMenu extends AnchorPane {
         vfxBox.setTranslateY((this.getMaxHeight()/2)+150);
         vfxBox.setTextFill(Color.WHITE);
         vfxBox.setFont(new Font(15));
+        vfxBox.setSelected(true);
         vfxBox.setOnMouseEntered(e->{
             vfxBox.setTextFill(Color.RED);
         });
         vfxBox.setOnMouseExited(e->{
             vfxBox.setTextFill(Color.WHITE);
+        });
+        vfxBox.setOnMouseClicked(e->{
+            if (vfxBox.isSelected()){
+                vfxSound.unmuteAll();
+            }else {
+                vfxSound.muteAll();
+            }
         });
 
 
@@ -60,6 +68,7 @@ public class OptionMenu extends AnchorPane {
         backgroundSound.setTranslateY((this.getMaxHeight()/2)+200);
         backgroundSound.setTextFill(Color.WHITE);
         backgroundSound.setFont(new Font(15));
+        backgroundSound.setSelected(true);
         backgroundSound.setOnMouseEntered(e->{
             backgroundSound.setTextFill(Color.RED);
         });
@@ -68,9 +77,9 @@ public class OptionMenu extends AnchorPane {
         });
         backgroundSound.setOnMouseClicked(e->{
             if (backgroundSound.isSelected()){
-                background.setMute(true);
+                vfxSound.unmuteBgMusic();
             }else {
-                background.setMute(false);
+               vfxSound.muteBgMusic();
             }
         });
 

@@ -269,7 +269,7 @@ public class GameScene extends Application {
         background.setAutoPlay(true);
 
         stackPane.getChildren().addAll(pane);
-        stackPane.setStyle("-fx-background-color: black");
+        stackPane.setStyle("-fx-background-color: #000000");
 
         Scene scene =new Scene(stackPane, SCENE_WIDTH, SCENE_HEIGHT);
         scene.setOnKeyPressed(e ->{
